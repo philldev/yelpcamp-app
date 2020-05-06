@@ -1,0 +1,39 @@
+<%- include("./partials/header") %>
+    <%- include("./partials/form-head") %>
+        <h1 class="text-center">Sign Up</h1>
+        <form action="/register" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" type="text" id="username" name="username" placeholder="eg. John123">
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Your first name">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Your last name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" type="text" id="email" name="email" placeholder="eg. youremail@email.com">
+            </div>
+            <!-- <div class="form-group">
+                <label for="avatar">Avatar</label>
+                <input class="form-control" type="text" id="avatar" name="avatar" placeholder="Image url">
+            </div> -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" id="password" name="password" placeholder="Your password">
+            </div>
+            <div class="form-group">
+                <label for="password">Admin code</label>
+                <input class="form-control" type="password" id="adminCode" name="adminCode" placeholder="adminCode">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Sign Up</button>
+            </div>
+            <a class="text-primary" href="/campgrounds">Go back</a>
+        </form>
+    <%- include("./partials/form-foot") %>
+<%- include("./partials/footer") %>

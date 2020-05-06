@@ -1,0 +1,41 @@
+<%- include("../partials/header") %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-light shadow mb-3" style="width: 18rem; margin: 0 auto;">
+                    <img src="/images/avatar/avatar.svg" class="card-img-top avatar-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> <%= `${user.firstName} ${user.lastName}` %></h5>
+                        <p class="card-text">
+                            <i class="fas fa-envelope"></i> email : <a href="mailto:<%=user.email%>"><%=user.email%></a> <br>
+                            <i class="fas fa-user"></i> username : <%= user.username %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 bg-light border shadow pt-2 rounded">
+                <p><strong><%= user.username %>'s</strong> campgrounds</p>                
+                    <% campgrounds.forEach(campground => {%>
+                        <div class="media mb-3">                        
+                            <a href="/campgrounds/<%= campground.id %>">
+                                <img id="campground-user-list" src="<%= campground.image%> " class="mr-3" alt="...">
+                            </a>
+                            <div class="media-body">
+                            <h5 class="mt-0"><a href="/campgrounds/<%= campground.id %>"><%= campground.name%></a>
+                                <span class="float-right">
+                                    <a href="/campgrounds/<%= campground.id %>/edit" data-toggle="tooltip" data-placement="top" title="Edit campground"><i class="fas fa-edit"></i></a>
+                                </span>
+                            </h5>
+                      <%= campground.description %> 
+                            </div>
+                        </div>
+                    <% }) %>                 
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+<%- include("../partials/footer") %>

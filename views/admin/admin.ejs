@@ -1,0 +1,16 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <h1 class="text-center">Hello <%= admin.username %></h1>
+        <ul>
+            <p>Users :</p>
+            <% users.forEach(user => { %>
+            <li class="mb-2">
+            <%= user.username %>  
+            <a href="/admin/<%= user.id %>/edit">Edit</a>
+        <% });  %>
+        </ul>
+</div>
+
+<%- include("../partials/footer") %>
+

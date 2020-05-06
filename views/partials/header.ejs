@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/df781d4915.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/stylesheet/main.css">
+        <title>YelpCamp</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a href="/" class="navbar-brand">YelpCamp</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+                            <a class="nav-link" href="/campgrounds">Home</a>
+                        </li>
+                        <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+                            <a class="nav-link" href="/campgrounds">About</a>
+                        </li>
+                        <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+                            <a class="nav-link" href="/campgrounds">Contacts</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        
+                        <% if (!currentUser) { %> 
+                        <a class="btn btn-light mr-1" href="/login">Login</a>
+                        <a class="btn btn-light mr-1" href="/register">Signup</a>
+                        <% } else { %> 
+                        <a class="btn btn-light mr-1" href="/users/<%= currentUser.id %>">Signed in as : <%= currentUser.username %> </a>
+                        <% if (currentUser && currentUser.isAdmin === true) { %>
+                            <a class="btn btn-light mr-1" href="/admin">Admin</a>
+                        <% } %>
+                        <a class="btn btn-light mr-1" href="/logout">Logout</a>
+                        <% } %> 
+                    </form> 
+                </div>
+            </div> 
+        </nav>
+        <% if(error && error.length > 0) { %> 
+            <div class="container">
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            </div>
+        <% } %> 
+        <% if(success && success.length > 0) { %> 
+        <div class="container">
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        </div>
+        <% } %> 
+        
+        
+        
+
+        
