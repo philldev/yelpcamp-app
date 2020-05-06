@@ -1,25 +1,26 @@
-const   express         = require('express'),
-        app             = express(),
-        bodyParser      = require('body-parser'),
-        mongoose        = require('mongoose'),
-        passport        = require('passport'),
-        localStrategy   = require('passport-local'),
-        flash           = require('connect-flash'),
-        User            = require('./models/user.js'),
-        methodOverride = require('method-override'),
+const   express             = require('express'),
+        app                 = express(),
+        bodyParser          = require('body-parser'),
+        mongoose            = require('mongoose'),
+        passport            = require('passport'),
+        localStrategy       = require('passport-local'),
+        flash               = require('connect-flash'),
+        User                = require('./models/user.js'),
+        methodOverride      = require('method-override'),
+        PORT                = process.env.PORT || 5000, 
         //Routes
         campgroundsRoutes   = require('./router/campgrounds'),
         commentsRoutes      = require('./router/comments'),
         indexRoutes         = require('./router/index'),
         adminRoutes         = require('./router/admin'),
-        seedDB = require('./seed'),
+        seedDB              = require('./seed'),
         atlasUri            = 'mongodb+srv://deddy:wCGEwFr9jEwHn7bM@phillcluster01-bagnm.gcp.mongodb.net/Yelp_camp?retryWrites=true&w=majority';
 
 // Data seeds        
 // seedDB();
         
 // Connect to db
-mongoose.connect('mongodb://localhost/yelp_camp', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(atlasUri , {useNewUrlParser: true, useUnifiedTopology: true});
 // mongodb+srv://deddy:wCGEwFr9jEwHn7bM@phillcluster01
 
 // Moment JS
@@ -63,8 +64,6 @@ app.use('/campgrounds/:id/comments', commentsRoutes);
 app.use('/admin/', adminRoutes);
 
 //Listen
-app.listen(3000, '127.0.0.1', function(){
+app.listen(PORT , function(){
     console.log("server started!")
 })
-
-// Delete this
