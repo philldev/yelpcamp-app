@@ -13,15 +13,12 @@ const   express             = require('express'),
         commentsRoutes      = require('./router/comments'),
         indexRoutes         = require('./router/index'),
         adminRoutes         = require('./router/admin'),
-        seedDB              = require('./seed'),
-        atlasUri            = 'mongodb+srv://deddy:wCGEwFr9jEwHn7bM@phillcluster01-bagnm.gcp.mongodb.net/Yelp_camp?retryWrites=true&w=majority';
+        // Database
+        localURL            = 'mongodb://localhost/yelp_camp',
+        atlasURL            = 'mongodb+srv://deddy:wCGEwFr9jEwHn7bM@phillcluster01-bagnm.gcp.mongodb.net/Yelp_camp?retryWrites=true&w=majority';
 
-// Data seeds        
-// seedDB();
-        
 // Connect to db
-mongoose.connect(atlasUri , {useNewUrlParser: true, useUnifiedTopology: true});
-// mongodb+srv://deddy:wCGEwFr9jEwHn7bM@phillcluster01
+mongoose.connect(localURL , {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Moment JS
 app.locals.moment = require('moment');
