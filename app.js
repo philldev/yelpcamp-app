@@ -54,13 +54,13 @@ app.use((req,res,next) => {
     next();
 })
 
-//Routes
+// Routes
 app.use(indexRoutes);
 app.use('/campgrounds', campgroundsRoutes);
 app.use('/campgrounds/:id/comments', commentsRoutes);
 app.use('/admin/', adminRoutes);
 
-//Listen
+// Listen
 app.listen(PORT , function(){
     console.log("server started!")
 })
