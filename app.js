@@ -18,7 +18,7 @@ const   express             = require('express'),
         atlasURL            = 'mongodb+srv://deddy:wCGEwFr9jEwHn7bM@phillcluster01-bagnm.gcp.mongodb.net/Yelp_camp?retryWrites=true&w=majority';
 
 // Connect to db
-mongoose.connect(localURL , {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(atlasURL , {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Moment JS
 app.locals.moment = require('moment');

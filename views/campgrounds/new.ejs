@@ -1,5 +1,6 @@
 <%- include("../partials/header") %>
     <%- include("../partials/form-head") %>
+        <h2 class="text-center mb-5">Add Camps</h2>
         <form class="text-left"  action="/campgrounds" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
@@ -16,8 +17,8 @@
             <div class="form-group">
                 <textarea class="form-control" id="desc" rows="3" name="description" placeholder="Description"></textarea>
             </div>
-            <button class="btn btn-primary btn-block">Submit</button>
+            <button class="btn btn-primary btn-inline">Add</button><a href="/campgrounds" class="float-right text-secondary">go back</a>
         </form>
-        <a href="/campgrounds">go back</a>
+        
     <%- include("../partials/form-foot") %>
 <%- include("../partials/footer") %>
